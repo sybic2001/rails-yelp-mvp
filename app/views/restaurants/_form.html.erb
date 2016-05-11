@@ -4,5 +4,8 @@
   <%= f.input :address %>
   <%= f.input :phone_number %>
   <%= f.input :category, as: :select, collection: Restaurant::CATEGORIES, prompt: "Choisis un type" %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <div class="text-center">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
 <% end %>
+

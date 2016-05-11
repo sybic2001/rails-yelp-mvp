@@ -1,6 +1,37 @@
-<%= simple_form_for [@restaurant, @review] do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :content %>
-  <%= f.input :rating, as: :select, collection: (0..5), prompt: "Choisis une note" %>
-  <%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
+<div class="padded">
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :content %>
+<!--     <%= f.input :rating, as: :select, collection: (0..5), prompt: "Choisis une note" %> -->
+    <%= f.hidden_field :rating %>
+    <i class='fa fa-star rating' id="1" aria-hidden='true'></i>
+    <i class='fa fa-star rating' id="2" aria-hidden='true'></i>
+    <i class='fa fa-star rating' id="3" aria-hidden='true'></i>
+    <i class='fa fa-star rating' id="4" aria-hidden='true'></i>
+    <i class='fa fa-star rating' id="5" aria-hidden='true'></i>
+    <div class="text-center">
+      <%= f.button :submit, class: "btn btn-danger" %>
+      <%= link_to "Menu", restaurants_path, class: "btn btn-primary text-center" %>
+    </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.rating').on('click', function(){
+      $('#review_rating').val(this.id)
+    });
+    $('.rating')
+      .mouseover(function(){
+        for (i = 1 ; i <= this.id ; i += 1){
+          $('#' + i).addClass('rating-yellow');
+        }
+      }).mouseout(function(){
+        $('.rating').removeClass('rating-yellow');
+        var stars = $('#review_rating').val();
+        for (i = 1 ; i <= stars ; i += 1){
+          $('#' + i).addClass('rating-yellow');
+        }
+      });
+  });
+</script>

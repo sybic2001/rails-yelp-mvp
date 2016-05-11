@@ -1,13 +1,26 @@
-<h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.phone_number %></p>
-<p><%= @restaurant.category %></p>
+<h1 class="text-center"><%= @restaurant.name %></h1>
+<p>Addresse : <%= @restaurant.address %></p>
+<p>Téléphone : <%= @restaurant.phone_number %></p>
+<p>Type : <%= @restaurant.category %></p>
 
-<ul>
+<div class="list-group">
   <% @restaurant.reviews.each do |review| %>
-    <li><%= review.content %> - <%= "*" * review.rating %></li>
+    <li class="list-group-item">
+    <% review.rating.times do %>
+      <i class='fa fa-star' aria-hidden='true'></i>
+    <% end %>
+    <% (5 - review.rating).times do %>
+      <i class='fa fa-star-o' aria-hidden='true'></i>
+    <% end %>
+    &nbsp;&nbsp;&nbsp;<%= review.content %>
+    </li>
   <% end %>
-</ul>
+</div>
 
-<%= link_to "Ecrire un commentaire", new_restaurant_review_path(@restaurant) %>
-<%= link_to "Menu", restaurants_path %>
+<div class="wrapper">
+  <%= render 'reviews/form' %>
+</div>
+
+<% content_for(:title) do %>
+  <%= @restaurant.name %>
+<% end %>

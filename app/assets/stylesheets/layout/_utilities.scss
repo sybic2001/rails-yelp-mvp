@@ -6,8 +6,7 @@
 
 // Paddings
 .padded {
-  padding-top: 5em;
-  padding-bottom: 5em;
+  padding: 50px;
 }
 
 // Backgrounds
@@ -22,4 +21,16 @@
 }
 .bg-dark-blue {
   background: #3b5998;
+}
+
+.rating {
+  color: #DFDFDF;
+}
+
+.rating:hover {
+  color: #FFD238;
+};
+
+.rating-yellow{
+  color: #FFD238;
 }
