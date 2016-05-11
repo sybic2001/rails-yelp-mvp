@@ -1,8 +1,15 @@
 <h1 class="text-center">Les restaurants</h1>
-<div class="list-group text-center">
 <% @restaurants.each do |restaurant| %>
-  <%= link_to restaurant.name, restaurant_path(restaurant), class: "list-group-item" %>
+  <div class="card">
+    <%= link_to restaurant_path(restaurant), class: "fill-div" do %>
+      <%= restaurant.name %>
+      <%= link_to restaurant_path(restaurant), method: :delete do %>
+        <i class="fa fa-times pull-right" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>
 <br>
+<div class="text-center">
 <%= link_to "Créer un restaurant", new_restaurant_path, class: "btn btn-danger" %>
 </div>

@@ -3,17 +3,20 @@
 <p>Téléphone : <%= @restaurant.phone_number %></p>
 <p>Type : <%= @restaurant.category %></p>
 
-<div class="list-group">
+<div class="contenu">
   <% @restaurant.reviews.each do |review| %>
-    <li class="list-group-item">
-    <% review.rating.times do %>
-      <i class='fa fa-star' aria-hidden='true'></i>
-    <% end %>
-    <% (5 - review.rating).times do %>
-      <i class='fa fa-star-o' aria-hidden='true'></i>
-    <% end %>
-    &nbsp;&nbsp;&nbsp;<%= review.content %>
-    </li>
+    <div class="card-review">
+      <% review.rating.times do %>
+        <i class='fa fa-star' aria-hidden='true'></i>
+      <% end %>
+      <% (5 - review.rating).times do %>
+        <i class='fa fa-star-o' aria-hidden='true'></i>
+      <% end %>
+      &nbsp;&nbsp;&nbsp;<%= review.content %>
+      <%= link_to restaurant_review_path(@restaurant, review), method: :delete do %>
+        <i class="fa fa-times" aria-hidden="true"></i>
+      <% end %>
+    </div>
   <% end %>
 </div>
 

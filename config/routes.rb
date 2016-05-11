@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :restaurants, only: [:new, :index, :create, :show] do
-    resources :reviews, only: [:create]
+  resources :restaurants, only: [:new, :index, :create, :show, :destroy] do
+    resources :reviews, only: [:create, :destroy]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

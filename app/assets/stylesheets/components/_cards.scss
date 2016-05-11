@@ -1,0 +1,43 @@
+.card {
+ position: relative;
+ margin: auto;
+ margin-top: 10px;
+ border-radius: 5px;
+ background-color: #FFF;
+ border: solid 1px #E6E6E6;
+ padding: 10px;
+ margin-bottom:20px;
+ width: 300px;
+ transition: 0.2s;
+}
+
+.card:hover {
+  background-color: #FAFAFA;
+  box-shadow: 0 0 4px 1px #FAFAFA;
+}
+
+.card-review {
+ position: relative;
+ margin: auto;
+ margin-top: 10px;
+ border-radius: 5px;
+ background-color: #FFF;
+ border: solid 1px #E6E6E6;
+ padding: 10px;
+ margin-bottom:20px;
+ width: 100%;
+}
+
+a.fill-div {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+
+.fa-times {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 12px;
+}
