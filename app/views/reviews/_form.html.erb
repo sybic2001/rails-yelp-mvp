@@ -1,0 +1,6 @@
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :content %>
+  <%= f.input :rating, as: :select, collection: (0..5), prompt: "Choisis une note" %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
